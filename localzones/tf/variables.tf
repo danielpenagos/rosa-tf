@@ -49,6 +49,11 @@ variable "private_subnets_cidr_s_az" {
   default     = ["10.0.1.0/24"]
 }
 
+variable "public_subnets_cidr_s_az" {
+  type        = list(string)
+  default     = ["10.0.101.0/24"]
+}
+
 variable "public_subnets_cidr_m_az" {
   type        = list(string)
   default     = ["10.0.101.0/24", "10.0.102.0/24","10.0.103.0/24"]
@@ -70,10 +75,7 @@ variable "localzone_public_cidr" {
   default     = "10.0.12.0/24"
 }
 
-variable "public_subnets_cidr_s_az" {
-  type        = list(string)
-  default     = ["10.0.101.0/24"]
-}
+
 
 variable "multi_az" {
   type        = bool
