@@ -1,0 +1,33 @@
+
+# Nota importante
+No olvidar Crear .gitignore en la raiz del proyecto.
+
+```bash
+cat <<EOF > .gitignore
+# 1. Ignorar la carpeta de módulos y plugins (Equivalente a node_modules)
+# Contiene los binarios de los proveedores y el código de los módulos descargados
+.terraform/
+
+# 2. Ignorar los archivos de estado (terraform.tfstate)
+# ¡CRÍTICO! Contienen información sensible y secretos en texto plano
+*.tfstate
+*.tfstate.*
+
+# 3. Ignorar archivos de variables con datos sensibles
+# Aquí es donde sueles poner tus passwords o API Keys (ej: secret.tfvars)
+*.tfvars
+*.tfvars.json
+
+# 4. Ignorar archivos de log y crash
+crash.log
+crash.*.log
+
+# 5. Ignorar archivos de plan (pueden contener secretos)
+*.tfplan
+
+# 6. Archivos de configuración local de Terraform
+.terraform.lock.hcl
+# Nota: Algunos equipos prefieren subir el lock file para asegurar versiones, 
+# pero en desarrollo inicial suele ignorarse si causa conflictos.
+EOF
+```
